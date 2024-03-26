@@ -10,6 +10,7 @@
 * [55. Jump Game](https://leetcode.cn/problems/jump-game/)
 * [45. Jump Game II](https://leetcode.cn/problems/jump-game-ii/)
 * [134. Gas Station](https://leetcode.cn/problems/gas-station/)
+* [406. Queue Reconstruction by Height](https://leetcode.cn/problems/queue-reconstruction-by-height/)
 
 ## stock
 
