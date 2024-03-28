@@ -12,7 +12,7 @@
 * [134. Gas Station](https://leetcode.cn/problems/gas-station/)
 * [406. Queue Reconstruction by Height](https://leetcode.cn/problems/queue-reconstruction-by-height/)
 * [452. Minimum Number of Arrows to Burst Balloons](https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/)
-
+* [763. Partition Labels](https://leetcode.cn/problems/partition-labels/) 
 ## stock
 
 * [121. Best Time to Buy and Sell Stock](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock)
