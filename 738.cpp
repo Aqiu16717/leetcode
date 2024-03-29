@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 int monotoneIncreasingDigits(int N) {
     std::string strN = std::to_string(N);
@@ -20,8 +21,14 @@ int monotoneIncreasingDigits(int N) {
 
 int main(int argc, char const *argv[])
 {
-    // monotoneIncreasingDigits(123);
-    // monotoneIncreasingDigits(456);
-    monotoneIncreasingDigits(987);
+    int ret;
+    ret = monotoneIncreasingDigits(123);
+    assert(ret == 123);
+    ret = monotoneIncreasingDigits(322);
+    assert(ret == 299);
+    // ret = monotoneIncreasingDigits(456);
+    // ret = monotoneIncreasingDigits(987);
+    ret= monotoneIncreasingDigits(100);
+    assert(ret == 99);
     return 0;
 }
