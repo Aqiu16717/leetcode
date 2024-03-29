@@ -16,6 +16,10 @@
 * [56. Merge Intervals](https://leetcode.cn/problems/merge-intervals/)
 * [783. Monotone Increasing Digits](https://leetcode.cn/problems/monotone-increasing-digits/)
 
+## Dynamic Programming
+
+* [746. Min Cost Climbing Stairs](https://leetcode.cn/problems/min-cost-climbing-stairs/)
+
 ## stock
 
 * [121. Best Time to Buy and Sell Stock](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock)
