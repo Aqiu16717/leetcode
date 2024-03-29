@@ -19,6 +19,7 @@
 ## Dynamic Programming
 
 * [746. Min Cost Climbing Stairs](https://leetcode.cn/problems/min-cost-climbing-stairs/)
+* [62. Unique Paths](https://leetcode.cn/problems/unique-paths/)
 
 ## stock
 
