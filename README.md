@@ -20,6 +20,8 @@
 
 * [746. Min Cost Climbing Stairs](https://leetcode.cn/problems/min-cost-climbing-stairs/)
 * [62. Unique Paths](https://leetcode.cn/problems/unique-paths/)
+* [63. Unique Paths II](https://leetcode.cn/problems/unique-paths-ii/)
+* [343. Integer Break](https://leetcode.cn/problems/integer-break/)
 
 ## stock
 
