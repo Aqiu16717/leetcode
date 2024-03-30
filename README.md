@@ -22,6 +22,7 @@
 * [62. Unique Paths](https://leetcode.cn/problems/unique-paths/)
 * [63. Unique Paths II](https://leetcode.cn/problems/unique-paths-ii/)
 * [343. Integer Break](https://leetcode.cn/problems/integer-break/)
+* [96. Unique Binary Search Trees](https://leetcode.cn/problems/unique-binary-search-trees/)
 
 ## stock
 

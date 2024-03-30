@@ -1,5 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+
+/**
+ * ref:https://leetcode.cn/problems/unique-binary-search-trees/solutions/329807/bu-tong-de-er-cha-sou-suo-shu-by-leetcode-solution
+ * 
+*/
 
 int numTrees(int n) {
     std::vector<int> dp(n + 1, 0);
@@ -16,9 +22,10 @@ int numTrees(int n) {
 }
 
 int main() {
-    int n = 3; // 可以根据需要修改节点数量 n
+    int n = 3;
     int count = numTrees(n);
-    std::cout << "不同的二叉搜索树数量为: " << count << std::endl;
+    std::cout << count << std::endl;
+    assert(count == 5);
 
     return 0;
 }
