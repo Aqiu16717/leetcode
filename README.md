@@ -24,6 +24,8 @@
 * [343. Integer Break](https://leetcode.cn/problems/integer-break/)
 * [96. Unique Binary Search Trees](https://leetcode.cn/problems/unique-binary-search-trees/)
 * [377. Combination Sum IV](https://leetcode.cn/problems/combination-sum-iv/)
+* [279. Perfect Squares](https://leetcode.cn/problems/perfect-squares/)
+    * [279.cpp](./279.cpp)
 
 ## stock
 
