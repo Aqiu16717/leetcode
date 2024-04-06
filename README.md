@@ -26,6 +26,9 @@
 * [377. Combination Sum IV](https://leetcode.cn/problems/combination-sum-iv/)
 * [279. Perfect Squares](https://leetcode.cn/problems/perfect-squares/)
     * [279.cpp](./279.cpp)
+* [139. Word Break](https://leetcode.cn/problems/word-break/)
+    * [139.cpp](./139.cpp)
+    * [139.md](./139.md)
 
 ## stock
 
