@@ -31,6 +31,10 @@
     * [139.md](./139.md)
 * [140. Word Break II](https://leetcode.cn/problems/word-break-ii/)
     * [140.cpp](./140.cpp)
+* [198. House Robber](https://leetcode.cn/problems/house-robber/description/)
+    * [198.cpp](./198.cpp)
+* [213. House Robber II](https://leetcode.cn/problems/house-robber-ii/)
+    * [213.cpp](./213.cpp)
 
 ## stock
 
