@@ -36,6 +36,9 @@
 * [213. House Robber II](https://leetcode.cn/problems/house-robber-ii/)
     * [213.cpp](./213.cpp)
 
+* [115. Distinct Subsequences]
+    * [115.cpp](./115.cpp)
+
 ## stock
 
 * [121. Best Time to Buy and Sell Stock](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock)
