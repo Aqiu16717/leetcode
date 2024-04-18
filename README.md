@@ -35,9 +35,12 @@
     * [198.cpp](./198.cpp)
 * [213. House Robber II](https://leetcode.cn/problems/house-robber-ii/)
     * [213.cpp](./213.cpp)
-
-* [115. Distinct Subsequences]
+* [115. Distinct Subsequences](https://leetcode.cn/problems/distinct-subsequences/)
     * [115.cpp](./115.cpp)
+* [647. Palindromic Substrings](https://leetcode.cn/problems/palindromic-substrings/)
+    * [647.cpp](./647.cpp)
+* [72. Edit Distance](https://leetcode.cn/problems/edit-distance/)
+    * [72.cpp](./72.cpp)
 
 ## stock
 
