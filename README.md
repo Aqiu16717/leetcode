@@ -57,3 +57,9 @@
 * [377. Combination Sum IV](https://leetcode.cn/problems/combination-sum-iv/)
     * [377.cpp](./377.cpp)
     * [377.md](./377.md)
+
+
+## Monotonic Stack
+
+* [739. Daily Temperatures](https://leetcode.cn/problems/daily-temperatures/)
+    * [739.cpp](./739.cpp)
