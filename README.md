@@ -1,5 +1,16 @@
 # leetcode
 
+## LinkList
+
+### fast and slow pointer
+* [876. Middle of the Linked List](https://leetcode.cn/problems/middle-of-the-linked-list/description/)
+
+## String
+### KMP
+* [28.Find the Index of the First Occurrence in String](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/)
+    * [28.cpp](./28.cpp)
+* [459. Repeated Substring Pattern](https://leetcode.cn/problems/repeated-substring-pattern/
+
 ## subsequence
 
 * [1143. Longest Common Subsequence](https://leetcode.cn/problems/longest-common-subsequence)
