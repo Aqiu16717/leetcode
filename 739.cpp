@@ -1,6 +1,6 @@
 /**
  * https://leetcode.cn/problems/daily-temperatures/
-*/
+ */
 
 #include <iostream>
 #include <stack>
