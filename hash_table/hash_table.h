@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
-#define TABLE_SIZE 10
+#define TABLE_INITIAL_SIZE 10
 
 typedef struct hash_node_t {
     char* key;
@@ -10,13 +11,15 @@ typedef struct hash_node_t {
     struct hash_node_t* next;
 } hash_node_t;
 
-typedef struct
+typedef struct hash_table_t
 {
-    hash_node_t* table[TABLE_SIZE];
-    unsigned int (*hash_function)(const char*);
+    hash_node_t** table;
+    unsigned int (*hash_function)(struct hash_table_t* ht, const char*);
+    uint32_t size;
+    uint32_t capacity;
 } hash_table_t;
 
-hash_table_t* create_hash_table(unsigned int (*hash_function)(const char*));
+hash_table_t* create_hash_table(int capacity, unsigned int (*hash_function)(hash_table_t*, const char*));
 
 void destroy_hash_table(hash_table_t* ht);
 
