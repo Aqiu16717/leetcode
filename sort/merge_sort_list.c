@@ -19,6 +19,29 @@ typedef struct node
     struct node* next;
 } node_t;
 
+node_t* create_node(int val) {
+    node_t* new_node = (node_t*)malloc(sizeof(node_t));
+    new_node->val = val;
+    new_node->next = NULL;
+    return new_node;
+}
+
+void free_list(node_t* head) {
+    while(head) {
+        node_t* tmp = head;
+        free(tmp);
+        head = head->next;
+    }
+}
+
+void print_list(node_t* head) {
+    while (head) {
+        printf("%p:%d ", head, head->val);
+        head = head->next;
+    }
+    printf("\n");
+}
+
 
 node_t* merge(node_t* head1, node_t* head2) {
     // alloc dumm_head on stack to prevent memory leak.
@@ -73,35 +96,64 @@ node_t* merge_sort(node_t* head, node_t* tail) {
     return merge(h1, h2);
 }
 
+// v1
 node_t* sort_list(node_t* head) {
     merge_sort(head, NULL);
 }
 
-node_t* create_node(int val) {
-    node_t* new_node = (node_t*)malloc(sizeof(node_t));
-    new_node->val = val;
-    new_node->next = NULL;
-    return new_node;
-}
-
-void free_list(node_t* head) {
-    while(head) {
-        node_t* tmp = head;
-        free(tmp);
-        head = head->next;
+// v2
+node_t* sort_list_botom_up(node_t* head) {
+    // the list is empty or has only one node
+    if (head == NULL || head->next == NULL) {
+        return head;
     }
-}
-
-void print_list(node_t* head) {
-    while (head) {
-        printf("%p:%d ", head, head->val);
-        head = head->next;
+    // len: the length of the list
+    int len = 0;
+    for (node_t* p = head; p != NULL; p = p->next) {
+        ++len;
     }
-    printf("\n");
+    node_t dummy_head;
+    dummy_head.next = head;
+    // sublen: the length of sub list
+    // sublen starts from 1 and doubles each time
+    for (int sublen = 1; sublen < len; sublen <<= 1) {
+        // pre: the tail of last time sorted sub list
+        node_t* pre = &dummy_head;
+        // cur: iterate the list
+        node_t* cur = dummy_head.next;
+        while (cur) {
+            // the first list to merge
+            node_t* head1 = cur;
+            for (int i = 1; i < sublen && cur->next; ++i) {
+                cur = cur->next;
+            }
+            // when loop is over: i == sublen or cur->next == NULL
+            // cut the list
+            node_t* nxt = cur->next;
+            cur->next = NULL;
+            cur = nxt;
+            // the second list to merge
+            node_t* head2 = cur;
+            for (int i = 1; i < sublen && cur && cur->next; ++i) {
+                cur = cur->next;
+            }
+            // when loop is over: i == sublen or cur == NULL or cur->next == NULL
+            if (cur) {
+                nxt = cur->next;
+                cur->next = NULL;
+                cur = nxt;
+            }
+            pre->next = merge(head1, head2);
+            while (pre->next) {
+                pre = pre->next;
+            }
+        }
+    }
+    return dummy_head.next;
 }
 
-int main()
-{
+void test_sort_list() {
+    printf("%s\n", __func__);
     node_t* head = create_node(4);
     node_t* n2 = create_node(2);
     node_t* n3 = create_node(1);
@@ -114,5 +166,27 @@ int main()
     node_t* new_head = sort_list(head);
     print_list(new_head);
 
+}
+
+void test_sort_list_botom_up() {
+    printf("%s\n", __func__);
+    node_t* head = create_node(4);
+    node_t* n2 = create_node(2);
+    node_t* n3 = create_node(1);
+    node_t* n4 = create_node(3);
+    head->next = n2;
+    n2->next = n3;
+    n3->next = n4;
+
+    print_list(head);
+    node_t* new_head = sort_list_botom_up(head);
+    print_list(new_head);
+}
+
+
+int main()
+{
+    test_sort_list();
+    test_sort_list_botom_up();
     return 0;
 }
