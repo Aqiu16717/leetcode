@@ -54,3 +54,53 @@ public:
         }
     };
     ```
+
+## 链表
+### 23. 合并 K 个升序链表
+给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。
+
+**题解**
+
+* 使用一个优先队列（最小堆）来存储链表节点。
+* 自定义比较器 cmp 确保优先队列按节点值排序。
+* 将每个链表的头节点推入优先队列。
+* 通过循环不断从优先队列中取出最小节点，将其加入结果链表，并将其后续节点（如果存在）推入优先队列。
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        auto cmp = [](const ListNode* lhs, const ListNode* rhs) {
+            return lhs->val > rhs->val;
+        };
+        priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> que(cmp);
+        for (int i = 0; i < lists.size(); ++i) {
+            if (lists[i]) {
+                que.push(lists[i]);
+            }
+        }
+        ListNode dummy_head;
+        ListNode* pre = &dummy_head;
+        while (!que.empty()) {
+            ListNode* node = que.top();
+            que.pop();
+            pre->next = node;
+            pre = pre->next;
+            if (node->next) {
+                que.push(node->next);
+            }
+        }
+        return dummy_head.next;
+    }
+};
+```
