@@ -14,6 +14,31 @@
 |---------|---------|---------|
 |Space	  |O(n)     |O(n)     |
 
+* delete
+  * The deletion of node `x` from the bst has three cases:
+    * x is a leaf node
+      ```
+        a              a
+       / \    --->    /
+      b   x          b
+      ```
+    * x has one child
+      ```
+        a              a
+       / \    --->    / \
+      b   x          b   c
+         /
+        c
+      ```
+    * x has both left and right child
+      ```
+        a              a
+       / \    --->    / \
+      b   x          b   c
+         / \              \
+        c   d              d
+      ```
+
 ## TODO
 * [x] implement binary search tree
 * [ ] add bst test case

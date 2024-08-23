@@ -2,17 +2,63 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_NODE_NUM 100
+
 typedef struct tree_node {
     int data;
     struct tree_node* left;
     struct tree_node* right;
 } tree_node_t;
 
-tree_node_t* bst_create() {
+tree_node_t* tree_node_create(int val) {
+    tree_node_t* node = (tree_node_t*)malloc(sizeof(tree_node_t));
+    node->data = val;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
 }
 
-void bst_free(tree_node_t* root) {
+void tree_destroy(tree_node_t* root) {
+    if (!root) {
+        tree_destroy(root->left);
+        tree_destroy(root->right);
+        free(root);
+    }
 }
+
+void tree_inorder_print(tree_node_t* root) {
+    if (root == NULL) {
+        return;
+    }
+    tree_inorder_print(root->left);
+    printf("%d\t", root->data);
+    tree_inorder_print(root->right);
+}
+
+#if 0
+void tree_level_print(tree_node_t* root) {
+    tree_node_t* que[MAX_NODE_NUM];
+    int front = 0;
+    int rear = 0;
+    que[rear] = root;
+    rear = (rear - 1) % MAX_NODE_NUM;
+
+    while (front != rear) {
+        int n = top + 1;
+        tree_node_t* node = stk[top--];
+        for (int i = 0; i < n; ++i) {
+            printf("%d\t", node->data);
+            if (node->left) {
+                stk[++top] = node->left;
+            }
+            if (node->right) {
+                stk[++top] = node->right;
+            }
+        }
+        printf("\n");
+    }
+}
+#endif
 
 /*
 insert(root, 65)
@@ -34,10 +80,10 @@ insert(root, 65)
 
 */
 tree_node_t* insert_recursive(tree_node_t* root, int val) {
+    tree_node_t* node = (tree_node_t*)malloc(sizeof(tree_node_t));
+    memset(node, 0, sizeof(tree_node_t));
+    node->data = val;
     if (!root) {
-        tree_node_t* node = (tree_node_t*)malloc(sizeof(tree_node_t));
-        memset(node, 0, sizeof(tree_node_t));
-        node->data = val;
         return node;
     }
     if (val < root->data) {
@@ -186,7 +232,7 @@ tree_node_t* delete(tree_node_t* root,int val) {
             // successor() will do repeated work.
             tree_node_t* tmp = minimum(root->right);
             root->data = tmp->data;
-            root->right = delete(root, tmp->data);
+            root->right = delete(root->right, tmp->data);
             return root;
         }
         if (root->left) {
@@ -216,6 +262,17 @@ tree_node_t* delete(tree_node_t* root,int val) {
 
 */
 void test() {
+    tree_node_t* root = NULL;
+    root = insert_iterative(root, 5);
+    root = insert_iterative(root, 3);
+    root = insert_iterative(root, 7);
+    root = insert_iterative(root, 2);
+    root = insert_iterative(root, 4);
+    root = insert_iterative(root, 6);
+    root = insert_iterative(root, 8);
+    tree_level_print(root);
+    // tree_inorder_print(root);
+    tree_destroy(root);
 }
 
 int main()
