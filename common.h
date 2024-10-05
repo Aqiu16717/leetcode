@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+#include <unordered_map>
 
 template <typename T>
 void printVec(const std::vector<T>& vec) {
@@ -31,4 +32,12 @@ void printSet(const std::set<T>& s) {
         std::cout << elem << " ";
     }
     std::cout << "]" << std::endl;
+}
+
+template <typename T1, typename T2>
+void printMap(const std::unordered_map<T1, T2>& m) {
+    for (auto kv : m) {
+        std::cout << "(" << kv.first << "," << kv.second << ")";
+    }
+    std::cout << std::endl;
 }
