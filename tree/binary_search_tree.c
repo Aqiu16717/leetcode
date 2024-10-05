@@ -190,8 +190,6 @@ tree_node_t* predecessor(tree_node_t* root, tree_node_t* node) {
         }
     }
     return pre;
-
-
 }
 
 tree_node_t* successor(tree_node_t* root, tree_node_t* node) {
@@ -211,6 +209,7 @@ tree_node_t* successor(tree_node_t* root, tree_node_t* node) {
             cur = cur->right;
         }
     }
+    return suc;
 }
 
 tree_node_t* delete(tree_node_t* root,int val) {
@@ -223,18 +222,22 @@ tree_node_t* delete(tree_node_t* root,int val) {
     } else if (root->data < val) {
         root->right = delete(root->right, val);
     } else {
+        // no children
         if (!root->left && !root->right) {
             free(root);
             return NULL;
         }
+        // two children
         if (root->left && root->right) {
             // don't use successor(), because root have left and right child,
             // successor() will do repeated work.
             tree_node_t* tmp = minimum(root->right);
             root->data = tmp->data;
+            // delete node with no children
             root->right = delete(root->right, tmp->data);
             return root;
         }
+        // one child
         if (root->left) {
             tree_node_t* tmp = root;
             root = root->left;
@@ -270,8 +273,55 @@ void test() {
     root = insert_iterative(root, 4);
     root = insert_iterative(root, 6);
     root = insert_iterative(root, 8);
-    tree_level_print(root);
-    // tree_inorder_print(root);
+
+    // tree_level_print(root);
+    printf(">> inorder print\n");
+    tree_inorder_print(root);
+    printf("\n");
+
+    tree_node_t* node = NULL;
+
+    printf(">> maxmum\n");
+    node = maximum(root);
+    printf("max:%d\n", node->data);
+
+    printf(">> minum\n");
+    node = minimum(root);
+    printf("min:%d\n", node->data);
+
+
+    printf(">> find node 4\n");
+    node = search_iterative(root, 4);
+    if (!node) {
+        printf("not exist\n");
+    }
+    printf("exist:%d\n", node->data);
+
+    printf(">> node 4 predecessor\n");
+    tree_node_t* pre = predecessor(root, node);
+    printf("%d\n", pre->data);
+
+    printf(">> node 4 successor\n");
+    tree_node_t* suc = successor(root, node);
+    printf("%d\n", suc->data);
+
+    printf(">> find node 2\n");
+    node = search_recursive(root, 2);
+    if (!node) {
+        printf("not exist\n");
+    }
+    printf("exist:%d\n", node->data);
+
+    printf(">> delete 8 and inorder print\n");
+    root = delete(root, 8);
+    tree_inorder_print(root);
+    printf("\n");
+
+    printf(">> delete 5 and inorder print\n");
+    root = delete(root, 5);
+    tree_inorder_print(root);
+    printf("\n");
+
     tree_destroy(root);
 }
 
